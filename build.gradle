@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+version = '1.0'
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Cralwer',
+                   'Implementation-Version': version
+    }
+}
+
+sourceSets {
+    main {
+        // where does the Java source code live?
+        java {
+            srcDir 'src/main/java'
+        }
+
+        // where do classpath resources like *.properties files live?
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile group: 'org.jsoup', name: 'jsoup', version: '1.10.2'
+}
